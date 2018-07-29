@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  main:
+    build: .
+    image: main
+  api:
+    build: 
+      context: ./api
+      dockerfile: Dockerfile
+    image: api
+  db:
+    image: postgres:9.6.8-alpine
+  

@@ -1,0 +1,62 @@
+version: '3.1'
+services:
+  main:
+    ports:
+      - "80:8080"
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./public:/usr/src/app/public
+    networks:
+      - front
+  api:
+    ports:
+      - "3000:3000"
+    secrets:
+      - DB_DIALECT
+      - DB_HOST
+      - DB_NAME
+      - DB_PASS
+      - API_PORT
+      - JWT_SECRET
+      - ORIGIN
+    volumes:
+      - ./api/src:/usr/src/app/src
+      - ./api/public:/usr/src/app/public
+    networks:
+      - front
+      - back
+    depends_on:
+      - db
+  db:
+    environment:
+      - POSTGRES_PASSWORD_FILE=/run/secrets/DB_PASS
+    ports:
+      - "5432:5432"
+    secrets:
+      - DB_PASS
+    volumes:
+      - pgdb:/var/lib/postgres/data
+    networks:
+      - back
+networks:
+  front:
+  back:
+volumes:
+  pgdb:
+secrets:
+  DB_DIALECT:
+    file: ./db/env/dialect.txt
+  DB_HOST:
+    file: ./db/env/host.txt
+  DB_NAME:
+    file: ./db/env/name.txt
+  DB_PASS:
+    file: ./db/env/psql_fake_password.txt
+  DB_USER:
+    file: ./db/env/user.txt
+  JWT_SECRET:
+    file: ./api/env/jwt_secret.txt
+  API_PORT:
+    file: ./api/env/port.txt
+  ORIGIN:
+    file: ./api/env/expected_origin.txt

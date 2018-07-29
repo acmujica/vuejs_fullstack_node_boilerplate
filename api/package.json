@@ -1,0 +1,39 @@
+{
+    "name": "api",
+    "version": "1.0.0",
+    "description": "api for boilerplate",
+    "main": "server.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "nodemon ./server.js --exec babel-node"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "ajv": "^6.5.2",
+      "bcrypt": "^2.0.1",
+      "body-parser": "^1.18.3",
+      "casual": "^1.5.19",
+      "express": "^4.16.3",
+      "jwt-simple": "^0.5.1",
+      "lodash": "^4.17.10",
+      "moment": "^2.22.2",
+      "node-env-file": "^0.1.8",
+      "node-fetch": "^2.1.2",
+      "passport": "^0.4.0",
+      "pg": "^7.4.3",
+      "pg-hstore": "^2.3.2",
+      "sequelize": "^4.37.10"
+    },
+    "devDependencies": {
+      "babel-cli": "^6.26.0",
+      "babel-preset-env": "^1.7.0",
+      "nodemon": "^1.17.5"
+    },
+    "babel": {
+      "presets": [
+        "env"
+      ]
+    }
+  }
+  

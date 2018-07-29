@@ -1,0 +1,60 @@
+{
+    "name": "team_now",
+    "version": "0.1.0",
+    "private": true,
+    "author": "Anthony Mujica",
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "test:unit": "vue-cli-service test:unit",
+        "test:e2e": "vue-cli-service test:e2e"
+    },
+    "dependencies": {
+        "lodash": "^4.17.10",
+        "npm": "^6.2.0",
+        "sequelize": "^4.37.10",
+        "vue": "^2.5.16",
+        "vue-router": "^3.0.1",
+        "vuetify": "^1.0.19",
+        "vuex": "^3.0.1"
+    },
+    "devDependencies": {
+        "@babel/polyfill": "^7.0.0-beta.49",
+        "@types/jest": "^22.0.1",
+        "@types/lodash": "^4.14.111",
+        "@vue/cli-plugin-babel": "^3.0.0-beta.15",
+        "@vue/cli-plugin-e2e-nightwatch": "^3.0.0-beta.15",
+        "@vue/cli-plugin-typescript": "^3.0.0-beta.15",
+        "@vue/cli-plugin-unit-jest": "^3.0.0-beta.15",
+        "@vue/cli-service": "^3.0.0-beta.15",
+        "@vue/test-utils": "^1.0.0-beta.16",
+        "babel-core": "7.0.0-bridge.0",
+        "babel-plugin-transform-imports": "^1.4.1",
+        "lint-staged": "^6.0.0",
+        "stylus": "^0.54.5",
+        "stylus-loader": "^3.0.1",
+        "ts-jest": "^22.4.6",
+        "typescript": "^2.9.2",
+        "vue-cli-plugin-vuetify": "^0.1.6",
+        "vue-template-compiler": "^2.5.16"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ],
+    "gitHooks": {
+        "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.ts": [
+            "vue-cli-service lint",
+            "git add"
+        ],
+        "*.vue": [
+            "vue-cli-service lint",
+            "git add"
+        ]
+    }
+}
